@@ -1,0 +1,55 @@
+{% extends 'patient/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div style="background-image:url({% static 'images/pic2.jpeg' %}); background-size:cover" class="card-box">
+            <div class="row mt-3">
+                <div class="col-lg-12">
+                    <div class="demo-box mt-4">
+                        {% for message in messages %}
+                        <div class="alert alert-info" role="alert">
+                            {{message}}
+                        </div>
+                        {% endfor %}
+                        <h4 class="header-title">Prescription </h4>
+                        <div class="table-responsive">
+                            <table class="table m-0 table-colored-bordered table-bordered-secondary">
+                                <thead>
+                                <tr>
+                                    <th>Prescription Id</th>
+                                    <th>Date</th>
+                                    <th>Doctors Note</th>
+                                    <th>Medicine Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in Prescription %}
+                                <tr>
+                                    <td scope="row">{{forloop.counter}}</td>
+                                    <td>{{i.date}}</td>
+                                    <td>{{i.Doctors_note}}</td>
+                                    <td>{{i.Medicine_name}}</td>
+
+
+
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end card-box -->
+    </div>
+    <!-- end col -->
+</div>
+<script type="text/javascript">
+window.mytest = function()
+{ var isValid = confirm('Are you sure Want to Delete ?');if (!isValid) { event.preventDefault();
+ }}
+</script>
+{% endblock %}

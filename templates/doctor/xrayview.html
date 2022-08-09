@@ -1,0 +1,43 @@
+{% extends 'doctor/base.html' %}
+{% block content %}
+{% load static %}
+<div class="row">
+    <div class="col-xl-12">
+         {% for message in messages %}
+                <div class="alert alert-info" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+        <div style="background-image:url({% static 'images/pic2.jpeg' %}); background-size:cover" class="card-box">
+            <h4 class="header-title mb-4">X-Ray Shared</h4>
+            <table class="table m-0 table-colored-bordered table-bordered-secondary">
+
+
+<tr>
+    <th>id</th>
+    <th>Patient</th>
+    <th>Type</th>
+    <th>X-ray</th>
+</tr>
+
+            {% for i in xray %}
+
+       <tr>
+           <td>  {{i.report}}</td>
+           <td>{{ i.user }}</td>
+           <td>{{ i.name }}</td>
+
+           <td> <img src="{{i.report_image.url}}" style = "width:100px" /></td>
+       </tr>
+
+            {% endfor %}
+ </table>
+        </div>
+        <!-- end card -->
+    </div>
+    <!-- end col -->
+
+
+</div>
+
+{% endblock  %}

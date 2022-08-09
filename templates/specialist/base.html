@@ -1,0 +1,227 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Personal Health Data Sharing System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Responsive bootstrap 4 admin template" name="description"/>
+    <meta content="Coderthemes" name="author"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'base/images/favicon.ico' %}">
+
+    <!-- App css -->
+    <link href="{% static 'base/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet"/>
+    <link href="{% static 'base/css/icons.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'base/css/app.min.css' %}" rel="stylesheet" type="text/css" id="app-stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+
+<body data-layout="horizontal">
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <!-- Topbar Start -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <ul class="list-unstyled topnav-menu float-right mb-0">
+
+                    <li class="dropdown notification-list">
+                        <!-- Mobile menu toggle-->
+                        <a class="navbar-toggle nav-link">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </li>
+
+
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light"
+                           data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <span class="d-none d-sm-inline-block ml-1">{{request.user}}</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+
+                            <div class="dropdown-divider"></div>
+
+                            <!-- item-->
+                            <a href="{% url 'logout' %}" class="dropdown-item notify-item">
+                                <i class="mdi mdi-logout-variant"></i>
+                                <span>Logout</span>
+                            </a>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+                <!-- LOGO -->
+                <div class="logo-box">
+                    <a href="" class="logo text-center">
+                                <span class="logo-lg">
+<!--                                                <img src="{assets/images/logo.png" alt="" height="30">-->
+                                                 <span class="logo-lg-text-light">Personal Health Data Sharing System</span>
+                                </span>
+                        <span class="logo-sm">
+                            <span class="logo-sm-text-dark">Personal Health Data Sharing System</span>
+                            <!--                                <img src="assets/images/logo-sm.png" alt="" height="22">-->
+                                </span>
+                    </a>
+                </div>
+
+                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+
+
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- end Topbar -->
+
+        <div class="topbar-menu">
+            <div class="container-fluid">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+
+                        <li class="has-submenu">
+                            <a href=""> <i class="mdi mdi-view-dashboard"></i>Dashboard</a>
+                            <ul class="submenu">
+                                <li><a href="{% url 'specialist_home' %}">Home </a></li>
+
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#">Reports
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="{% url 'reports_shared_specialist' %}">Reports Shared</a></li>
+                                <li><a href="{% url 'accepted_requests_specialist' %}">Approved Requests</a></li>
+
+                            </ul>
+
+
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="#">Profile
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="{% url 'profile2' %}">View Profile</a></li>
+<!---->
+<!---->
+<!---->
+                            </ul>
+<!---->
+                        </li>
+                         <li class="has-submenu">
+                            <a href="#">Refers
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="{% url 'sp_refers_received' %}">Refers Received</a></li>
+
+                            </ul>
+
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="{% url 'sp_add_Prescription' %}">Prescription
+                            </a>
+
+
+
+
+                    </ul>
+                    <!-- End navigation menu -->
+
+                    <div class="clearfix"></div>
+                </div>
+                <!-- end #navigation -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end navbar-custom -->
+    </header>
+    <!-- End Navigation Bar-->
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div style="background-image:url({% static 'images/pic5.jpeg' %}); background-size:cover" class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);"></a></li>
+                                    <li class="breadcrumb-item active"></li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- start page title -->
+                {% block content %} {% endblock %}
+                <!-- end row -->
+
+
+            </div>
+            <!-- end container-fluid -->
+
+        </div>
+        <!-- end content -->
+
+
+        <!-- Footer Start -->
+        <footer style="background-color:white; background-size:cover" class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        2021 &copy; The First Wealth Is  <a href="">Health</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+</div>
+<!-- END wrapper -->
+
+
+<!-- Vendor js -->
+<script src="{% static 'base/js/vendor.min.js' %}"></script>
+
+<script src="{% static 'base/libs/morris-js/morris.min.js' %}"></script>
+<script src="{% static 'base/libs/raphael/raphael.min.js' %}"></script>
+
+<script src="{% static 'base/js/pages/dashboard.init.js' %}"></script>
+
+<!-- App js -->
+<script src="{% static 'base/js/app.min.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{% extends 'patient/base.html' %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_filters %}
+ <div class="row">
+    <div class="col-8">
+        <div style="background-image:url({% static 'images/pic2.jpeg' %}); background-size:cover" class="card-box">
+            <div class="col-lg-12">
+                <h4 class="header-title">Upload X-Ray</h4>
+                <br>
+                {% for message in messages %}
+                <div class="alert alert-info" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+                <form style="background-image:url({% static 'images/pic2.jpeg' %}); background-size:cover" method="post" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="form-group">
+<!--                        <input style="background-image:url({% static 'images/pic2.jpeg' %}); background-size:cover"type="file" name="upload">-->
+
+                        {{data|crispy}}
+
+
+                    </div>
+                    <div class="form-group text-center mb-0">
+                        <button class="btn btn-primary waves-effect waves-light" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- end card-box -->
+    </div>
+    <!-- end col-->
+</div>
+
+
+{% endblock %}

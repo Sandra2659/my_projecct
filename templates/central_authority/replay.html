@@ -1,0 +1,37 @@
+{% extends 'central_authority/base.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+{% load static %}
+
+
+  <body>
+    <div class="testbox">
+      <central>
+      <form method="post">
+        {% csrf_token %}
+        <link href="{% static 'base/css/customfontsize.css' %}" rel="stylesheet"/>
+        <textarea name="replay" rows="10" ></textarea>
+      </central>
+
+        <hr/>
+
+        <div class="btn-block">
+          <button class="btn btn-primary waves-effect waves-light" type="submit" href="/">Send</button>
+        </div>
+<!--        <div class="item desired-outcome">-->
+<!--          <p>Desired outcome</p>-->
+<!--          <div class="desired-outcome-item">-->
+<!--            <textarea rows="5"></textarea>-->
+<!--            <small>By signing you declare that all information you have entered is truthful and accurate.</small>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <h4>Your signature</h4>-->
+<!--        <textarea rows="5"></textarea>-->
+<!--        <small>By signing you declare that all information you have entered is truthful and accurate.</small>-->
+      </form>
+      <br><br><br><br>
+    </div>
+  <br><br><br><br><br><br>
+  </body>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'patient/base.html' %}
+{% block content %}
+{% load static %}
+
+
+  <body>
+    <div class="testbox">
+      <form style="background-image:url({% static 'images/pic2.jpeg' %}); background-size:cover" method="post">
+        {% csrf_token %}
+        <h1>Complaint Form</h1>
+        <p>Please send us details about the incident you would like to report. Our Complaint Center will analyze your complaint and take the appropriate measures in order that the reported situation will not occur at any other time in the future.</p>
+        <hr/>
+<!--        <div class="item">-->
+<!--          <p>Name</p>-->
+<!--          <input type="text" name="name" placeholder="First" />-->
+<!--          <input type="text" name="name" placeholder="Last" />-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--          <p>Email</p>-->
+<!--          <input type="text" name="name"/>-->
+<!--        </div>-->
+<!--        <div class="item address">-->
+<!--          <p>Address</p>-->
+<!--          <div class="street">-->
+<!--            <input class="street-item" type="text" name="name" placeholder="Street address" />-->
+<!--            <input  class="street-item" type="text" name="name" placeholder="Street addres line 2" />-->
+<!--            <input type="text" name="name" placeholder="City" />-->
+<!--            <input type="text" name="name" placeholder="Region" />-->
+<!--            <input type="text" name="name" placeholder="Postal / zip code" />-->
+<!--            <select>-->
+<!--              <option value="">Country</option>-->
+<!--              <option value="1">Russia</option>-->
+<!--              <option value="2">Germany</option>-->
+<!--              <option value="3">France</option>-->
+<!--              <option value="4">Armenia</option>-->
+<!--              <option value="5">USA</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--        </div>-->
+
+        <div class="item location">
+          <p>Complaint Title</p>
+          <input type="text" name="title"/>
+        </div>
+        <div class="item complaint-details">
+          <p>Complaint Details</p>
+          <div class="form-group">
+            <textarea name='content' class="form-control" rows="6" cols="50"></textarea>
+          </div>
+
+        </div>
+        <div class="btn-block">
+          <button type="submit" href="/">Send</button>
+        </div>
+<!--        <div class="item desired-outcome">-->
+<!--          <p>Desired outcome</p>-->
+<!--          <div class="desired-outcome-item">-->
+<!--            <textarea rows="5"></textarea>-->
+<!--            <small>By signing you declare that all information you have entered is truthful and accurate.</small>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <h4>Your signature</h4>-->
+<!--        <textarea rows="5"></textarea>-->
+<!--        <small>By signing you declare that all information you have entered is truthful and accurate.</small>-->
+      </form>
+      <br><br><br><br>
+    </div>
+  <br><br><br><br><br><br>
+  </body>
+
+{% endblock %}

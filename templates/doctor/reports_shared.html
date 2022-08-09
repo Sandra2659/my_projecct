@@ -1,0 +1,38 @@
+{% extends 'doctor/base.html' %}
+{% block content %}
+{% load static %}
+<div class="row">
+    <div class="col-xl-12">
+         {% for message in messages %}
+                <div class="alert alert-info" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+        <div style="background-image:url({% static 'images/pic2.jpeg' %}); background-size:cover" class="card-box">
+            <h4 class="header-title mb-4">Reports Shared</h4>
+
+
+            {% for i in reports %}
+            <div class="alert alert-info" role="alert">
+                <h4>
+                     Report Shared from
+                    {{i.patient.name}}.
+                    {% if i.doctor_request == 0 %}
+                    <a style="color:red;" href="{% url 'request_report_view' i.id %}" class="alert-link">
+                        Click Here to </a>request patient for viewing report.
+                    {% else %}
+                    Requested to view report
+                    {% endif %}
+
+                </h4>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- end card -->
+    </div>
+    <!-- end col -->
+
+
+</div>
+
+{% endblock  %}
